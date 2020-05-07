@@ -1,71 +1,80 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
-    <link rel="stylesheet" href="css/foundation.css">
-    <link rel="stylesheet" href="css/app.css">
-  </head>
-  <body>
-    <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-          <h1>Welcome to The Happy Place</h1>
-        </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foundation for Sites</title>
+  <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+        <h1>Welcome to The Happy Place</h1>
       </div>
+    </div>
 
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-          <div class="callout">
-            <h3>Stuck in quarantine? Grad a pick me up to brighten your day!</h3>
-            <div class="grid-x grid-padding-20">
-				&nbsp;
-				<p>
-				<a href="#" class="button">Simple Button</a>&nbsp;
-				<a href="#" class="button">Simple Button</a>&nbsp;
-				<a href="#" class="button">Simple Button</a>&nbsp;
-			  	<a href="#" class="button">Simple Button</a>&nbsp;
-			  	<a href="#" class="button">Simple Button</a>&nbsp;
-				</p></div>
-            
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+        <div class="callout">
+          <h3>Stuck in quarantine? Grad a pick me up to brighten your day!</h3>
+          <div class="grid-x grid-padding-20">
+            &nbsp;
+            <p>
+              <a href="#" class="button">Simple Button</a>&nbsp;
+              <a href="#" class="button">Simple Button</a>&nbsp;
+              <a href="#" id="Giphy-animal-button" class="button">Funny Animals</a>&nbsp;
+              <a href="#" id="Meme-button" class="button">Memes</a>&nbsp;
+              <a href="#" class="button">Simple Button</a>&nbsp;
+            </p>
           </div>
-        </div>
-      </div>
 
-      <div class="grid-x grid-padding-x">
-        <div class="large-8 medium-8 cell">
-         
-			<div class="callout"> <h5>content goes here...</h5>
-				
-			</div>	
-         
-
-         
-
-
-        </div>
-
-        <div class="large-4 medium-4 cell">
-          <div class="callout"><h5>Today is:</h5>
-			<h1 id="day-of-week"></h1> <!-- Added the moment.js current date -->
-          
-          <hr>
-            <h5 id="day"></h5>
-            <p id="celebrity-birthdays"></p> <!--Added Celebrity from API-->
-            <p>Fun fact can go here.</p>
-            <img id="day-images">
-          </div>
         </div>
       </div>
     </div>
 
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+    <div class="grid-x grid-padding-x">
+      <div class="large-8 medium-8 cell">
+
+        <div class="callout">
+          <h5>content goes here...</h5>
+          <!--Div tags for random animal giphy's & memes-->
+          <div id="images" class="generated-pictures"></div>
+          <div id="memes" class="generated-memes"></div>
+        </div>
+
+
+
+
+
+      </div>
+
+      <div class="large-4 medium-4 cell">
+        <div class="callout">
+          <h5>Today is:</h5>
+          <h1 id="day-of-week"></h1> <!-- Added the moment.js current date -->
+
+          <hr>
+          <h5 id="day"></h5>
+          <p id="celebrity-birthdays"></p>
+          <!--Added Celebrity from API-->
+          <p>Fun fact can go here.</p>
+          <img id="day-images">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/what-input.js"></script>
+  <script src="js/vendor/foundation.js"></script>
+  <script src="js/app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>

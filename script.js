@@ -6,49 +6,49 @@ var CurrentDay = moment().format("dddd");
 // Day and picture object array
 var daysArr = [
 	{
-	day: "Monday",
-    pic: "./images/monday-meme-1.jpg",
-    today: "It's Monday, let's do this!"
+		day: "Monday",
+		pic: "./images/monday-meme-1.jpg",
+		today: "It's Monday, let's do this!"
 	},
 	{
-	day:"Tuesday",
-    pic: "./images/taco-tuesday1.jpeg",
-    today: "It's Taco Tuesday!"
+		day: "Tuesday",
+		pic: "./images/taco-tuesday1.jpeg",
+		today: "It's Taco Tuesday!"
 	},
-	{ 
-	day: "Wednesday",
-    pic: "./images/wonder-woman-wednesday.jpg",
-    today: "It's Wonder Woman Wednesday!"
-	}, 
 	{
-	day: "Thursday",
-    pic: "./images/tbt1.jpg",
-    today: "It's Throwback Thursday!"
+		day: "Wednesday",
+		pic: "./images/wonder-woman-wednesday.jpg",
+		today: "It's Wonder Woman Wednesday!"
 	},
-	{ 
-	day: "Friday",
-    pic: "./images/tgif.png",
-    today: "Thank God It's Friday!"
+	{
+		day: "Thursday",
+		pic: "./images/tbt1.jpg",
+		today: "It's Throwback Thursday!"
 	},
-	{ 
-	day: "Saturday",
-    pic: "./images/social-saturday.webp",
-    today: "It's Social Saturday!"
+	{
+		day: "Friday",
+		pic: "./images/tgif.png",
+		today: "Thank God It's Friday!"
 	},
-	{ 
-	day: "Sunday",
-    pic: "./images/sunday-funday.jpg",
-    today: "Cheer up, It's Sunday Funday!"
+	{
+		day: "Saturday",
+		pic: "./images/social-saturday.webp",
+		today: "It's Social Saturday!"
+	},
+	{
+		day: "Sunday",
+		pic: "./images/sunday-funday.jpg",
+		today: "Cheer up, It's Sunday Funday!"
 	}
 ];
 
 // For loop for showing the days and pictures comparing current day with object array
-for (var i = 0; i < daysArr.length; i++){
-	if (CurrentDay === daysArr[i].day){
-        var img = $("#day-images");	
-        var day = $("#day");
-        day.html(daysArr[i].today);
-		img.attr("src",daysArr[i].pic);
+for (var i = 0; i < daysArr.length; i++) {
+	if (CurrentDay === daysArr[i].day) {
+		var img = $("#day-images");
+		var day = $("#day");
+		day.html(daysArr[i].today);
+		img.attr("src", daysArr[i].pic);
 		img.attr("height", "250px");
 		img.attr("width", "250px");
 		img.attr("alt", "Day Picture");
@@ -69,8 +69,52 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
 
-    var celebrity = response.Birthdays[0].name;
-	
+	var celebrity = response.Birthdays[0].name;
+
 	$("#celebrity-birthdays").html("Celebrity " + celebrity + " was born on this day");
+
+});
+
+//Funny Animal's Giphy generator 
+$("#Giphy-animal-button").on("click", function () {
+
+	var queryURL =
+		"https://api.giphy.com/v1/gifs/random?api_key=0BC3uC9rF7GCxcza8JnE4FIKwcXEoS0V&tag=funny_animals&rating=PG-13";
+
+	$.ajax({
+		url: queryURL,
+		method: "GET"
+	})
+
+		.then(function (response) {
+			var imageUrl = response.data.image_original_url;
+			var giphyImage = $("<img>");
+
+			giphyImage.attr("src", imageUrl);
+			giphyImage.attr("alt", "giphy image");
+
+			$("#images").prepend(giphyImage);
+		});
+});
+
+//Meme generator
+$("#Meme-button").on("click", function () {
+
+	var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=0BC3uC9rF7GCxcza8JnE4FIKwcXEoS0V&tag=ifunny&rating=Rmemes&rating=R";
+
+	$.ajax({
+		url: queryURL,
+		method: "GET"
+	})
+
+		.then(function (response) {
+			var imageUrl = response.data.image_original_url;
+			var memeImage = $("<img>");
+
+			memeImage.attr("src", imageUrl);
+			memeImage.attr("alt", "meme image");
+
+			$("#memes").prepend(memeImage);
+		});
 
 });
