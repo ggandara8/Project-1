@@ -75,46 +75,51 @@ $.ajax(settings).done(function (response) {
 
 });
 
-//Funny Animal's Giphy generator 
-$("#Giphy-animal-button").on("click", function () {
+//Generator for both Animal Giphies and Memes
+$("button").on("click", function () {
+	var meme = $(this).attr("data-meme");
 
-	var queryURL =
-		"https://api.giphy.com/v1/gifs/random?api_key=0BC3uC9rF7GCxcza8JnE4FIKwcXEoS0V&tag=funny_animals&rating=PG-13";
-
-	$.ajax({
-		url: queryURL,
-		method: "GET"
-	})
-
-		.then(function (response) {
-			var imageUrl = response.data.image_original_url;
-			var giphyImage = $("<img>");
-
-			giphyImage.attr("src", imageUrl);
-			giphyImage.attr("alt", "giphy image");
-
-			$("#images").prepend(giphyImage);
-		});
-});
-
-//Meme generator
-$("#Meme-button").on("click", function () {
-
-	var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=0BC3uC9rF7GCxcza8JnE4FIKwcXEoS0V&tag=ifunny&rating=Rmemes&rating=R";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+		meme + "&api_key=0BC3uC9rF7GCxcza8JnE4FIKwcXEoS0V";
 
 	$.ajax({
 		url: queryURL,
 		method: "GET"
-	})
 
-		.then(function (response) {
-			var imageUrl = response.data.image_original_url;
+	}).then(function (response) {
+
+		var results = response.data;
+
+		var memeDiv = $("<div>");
+
+		var shuffledlist = shuffle(results)
+
+		for (var i = 0; i < 5; i++) {
+
 			var memeImage = $("<img>");
+			memeImage.attr("src", shuffledlist[i].images.fixed_height.url);
 
-			memeImage.attr("src", imageUrl);
-			memeImage.attr("alt", "meme image");
+			memeDiv.append(memeImage);
 
-			$("#memes").prepend(memeImage);
-		});
+		}
+		$("#generated_content").html(memeDiv);
 
+
+	});
+
+	function shuffle(array) {
+		var currentIndex = array.length, temporaryValue, randomIndex;
+
+		while (0 !== currentIndex) {
+
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
+
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}
+
+		return array;
+	}
 });
