@@ -8,13 +8,14 @@
   <title>Welcome to The Happy Place</title>
   <link rel="stylesheet" href="css/foundation.css">
   <link rel="stylesheet" href="css/app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
-        <h1>Welcome to The Happy Place</h1>
+        <h1 class="sitename">Welcome to The Happy Place</h1>
       </div>
     </div>
 
@@ -40,7 +41,7 @@
     <div class="grid-x grid-padding-x">
       <div class="large-8 medium-8 cell">
 
-        <div class="callout"  class="callout generated-pictures generated-memes">
+        <div class="callout"  class="generated-pictures" class="generated-memes">
           <!-- content goes here... -->
           <div>
             <div id="generated_content"></div>
@@ -98,11 +99,11 @@
 
       <div class="large-4 medium-4 cell">
         <div class="callout">
-          <h5>Today is:</h5>
-          <h1 id="day-of-week"></h1> <!-- Added the moment.js current date -->
+          <h4 class="boldgreen">WHAT DAY IS IT?!</h4>
+          <h1 class="bold" id="day-of-week"></h1> <!-- Added the moment.js current date -->
 
           <hr>
-          <h5 id="day"></h5>
+          <h5 class="bold" id="day"></h5>
           <p id="celebrity-birthdays"></p>
           <!--Added Celebrity from API-->
           <img id="day-images">

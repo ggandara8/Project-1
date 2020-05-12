@@ -1,5 +1,5 @@
 // Time and Date, Moment.js
-$("#day-of-week").html(moment().format("dddd, MMMM Do YYYY"));
+$("#day-of-week").html(moment().format("dddd, MMMM Do, YYYY"));
 
 var CurrentDay = moment().format("dddd");
 
@@ -76,7 +76,7 @@ $.ajax(settings).done(function (response) {
 
 	var celebrity = response.Birthdays[0].name;
 
-	$("#celebrity-birthdays").html("Celebrity " + celebrity + " was born on this day");
+	$("#celebrity-birthdays").html("Celebrity " + "<strong>" + celebrity + "</strong>" + " was born on this day");
 
 });
 
