@@ -43,3 +43,12 @@
     right: 0; 
     bottom: 0; 
 }
+
+.joke {
+    font-size: 30px;
+    font-family: sans-serif;
+    font-size: medium;
+    margin: 30px auto;
+
+
+}

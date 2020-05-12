@@ -127,21 +127,21 @@ $("#Meme-button").on("click", function () {
 $("#container").hide();
 $("#slideshow").hide();
 
-$("#meditation-btn").on("click", function(e){
+$("#meditation-btn").on("click", function (e) {
 	e.preventDefault();
 	$("#randomImg").hide();
 	$("#slideshow").show();
 	$("#container").show();
-	
+
 	$("#slideshow > div:gt(0)").hide();
 
-	setInterval(function() {
- 		 $('#slideshow > div:first')
-    		.fadeOut(1000)
-    		.next()
-    		.fadeIn(1000)
-    		.end()
-    		.appendTo('#slideshow');
+	setInterval(function () {
+		$('#slideshow > div:first')
+			.fadeOut(1000)
+			.next()
+			.fadeIn(1000)
+			.end()
+			.appendTo('#slideshow');
 	}, 10000);
 
 });
@@ -160,41 +160,41 @@ var interval;
 var music = new Audio("./images/meditate.mp3");
 
 function getFormattedMinutes() {
-	
+
 	var secondsLeft = totalSeconds - secondsElapsed;
-  
+
 	var minutesLeft = Math.floor(secondsLeft / 60);
-  
+
 	var formattedMinutes;
-  
+
 	if (minutesLeft < 10) {
-	  formattedMinutes = "0" + minutesLeft;
+		formattedMinutes = "0" + minutesLeft;
 	} else {
-	  formattedMinutes = minutesLeft;
+		formattedMinutes = minutesLeft;
 	}
-  
+
 	return formattedMinutes;
 }
 
 
 function getFormattedSeconds() {
 	var secondsLeft = (totalSeconds - secondsElapsed) % 60;
-  
+
 	var formattedSeconds;
-  
+
 	if (secondsLeft < 10) {
-	  formattedSeconds = "0" + secondsLeft;
+		formattedSeconds = "0" + secondsLeft;
 	} else {
-	  formattedSeconds = secondsLeft;
+		formattedSeconds = secondsLeft;
 	}
-  
+
 	return formattedSeconds;
 }
 
 function setTime() {
 	var minutes;
 
-	inputMin.keypress(function(){
+	inputMin.keypress(function () {
 		minutes = inputMin.val();
 		minutesEl.html(minutes);
 		totalSeconds = minutes * 60;
@@ -205,7 +205,7 @@ function setTime() {
 
 }
 
-function renderTime () {
+function renderTime() {
 	minutesEl.html(getFormattedMinutes());
 	secondsEl.html(getFormattedSeconds());
 }
@@ -221,29 +221,82 @@ function stopTimer() {
 	renderTime();
 }
 
-playEl.on("click", function(){
+playEl.on("click", function () {
 	setTime();
 
 	// start music
-	
+
 	music.play();
 
 	// we only want to start the timer if minutes is > 0
-	if (totalSeconds > 0) {    
-		interval = setInterval(function() {
-		  secondsElapsed++;
-		  //So renderTime() is called here once every second.
-		  renderTime();
+	if (totalSeconds > 0) {
+		interval = setInterval(function () {
+			secondsElapsed++;
+			//So renderTime() is called here once every second.
+			renderTime();
 		}, 1000);
-	
+
 	}
 });
 
-pauseEl.on("click", function(){
+pauseEl.on("click", function () {
 	pauseTimer();
 	music.pause();
 });
 
-stopEl.on("click", function(){
+stopEl.on("click", function () {
 	stopTimer();
 });
+
+// Adding function to get Dad Joke
+
+const jokeEl = document.getElementById('generated_content');
+const get_joke = document.getElementById('get_joke');
+
+get_joke.addEventListener('click', function () {
+	$("#randomImg").show();
+	$("#container").hide();
+	$("#slideshow").hide();
+
+	generateJoke();
+
+});
+
+//generateJoke();
+
+async function generateJoke() {
+	// call icanhasdadjoke API
+	var jokeDiv = $("<div>");
+
+	const jokeRes = await fetch('https://icanhazdadjoke.com/', {
+		headers: {
+			'Accept': 'application/json'
+		}
+
+	});
+
+	const joke = await jokeRes.json();
+	jokeDiv.empty().append(joke.joke);
+	console.log(joke);
+	//set the new joke
+	jokeEl.innerHTML = joke.joke;
+
+}
+// Adding function to get Random Photo
+var getPhotoEl = document.getElementById("get_photo");
+
+getPhotoEl.addEventListener('click', function () {
+	$("#randomImg").show();
+	$("#container").hide();
+	$("#slideshow").hide();
+
+	getPhoto();
+
+});
+
+function getPhoto() {
+	document.getElementById('randomImg').innerHTML = `
+        <img src="https://source.unsplash.com/collection/209138/1600x900" class="responsive" >
+        `;
+
+}
