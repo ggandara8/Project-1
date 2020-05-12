@@ -3,7 +3,10 @@ $("#day-of-week").html(moment().format("dddd, MMMM Do YYYY"));
 
 var CurrentDay = moment().format("dddd");
 
-$("#randomImg").hide(); // ----------------------------------------------
+$("#image").hide(); // ----------------------------------------------
+$("#generated_content").hide();
+$("#container").hide();
+$("#slideshow").hide();
 
 // Day and picture object array
 var daysArr = [
@@ -79,9 +82,11 @@ $.ajax(settings).done(function (response) {
 
 //Funny Animal's Giphy generator 
 $("#Giphy-animal-button").on("click", function () {
+	$("#image").show();
+	$("#generated_content").hide();
 	$("#container").hide();
 	$("#slideshow").hide();
-	$("#randomImg").show();
+	// $("#randomImg").show();
 	var queryURL =
 		"https://api.giphy.com/v1/gifs/random?api_key=0BC3uC9rF7GCxcza8JnE4FIKwcXEoS0V&tag=funny_animals&rating=PG-13";
 
@@ -101,7 +106,8 @@ $("#Giphy-animal-button").on("click", function () {
 
 //Meme generator
 $("#Meme-button").on("click", function () {
-	$("#randomImg").show();
+	$("#image").show();
+	$("#generated_content").hide();
 	$("#container").hide();
 	$("#slideshow").hide();
 	var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=0BC3uC9rF7GCxcza8JnE4FIKwcXEoS0V&tag=Memes&rating=PG";
@@ -124,14 +130,14 @@ $("#Meme-button").on("click", function () {
 
 
 //meditation tab ---------------------------------------------------------------------------
-$("#container").hide();
-$("#slideshow").hide();
+
 
 $("#meditation-btn").on("click", function (e) {
 	e.preventDefault();
-	$("#randomImg").hide();
 	$("#slideshow").show();
 	$("#container").show();
+	$("#image").hide();
+	$("#generated_content").hide();
 
 	$("#slideshow > div:gt(0)").hide();
 
@@ -254,9 +260,11 @@ const jokeEl = document.getElementById('generated_content');
 const get_joke = document.getElementById('get_joke');
 
 get_joke.addEventListener('click', function () {
-	$("#randomImg").show();
+	
+	$("#generated_content").show();
 	$("#container").hide();
 	$("#slideshow").hide();
+	$("#image").hide();
 
 	generateJoke();
 
@@ -286,7 +294,8 @@ async function generateJoke() {
 var getPhotoEl = document.getElementById("get_photo");
 
 getPhotoEl.addEventListener('click', function () {
-	$("#randomImg").show();
+	$("#image").show();
+	$("#generated_content").hide();
 	$("#container").hide();
 	$("#slideshow").hide();
 
@@ -295,8 +304,10 @@ getPhotoEl.addEventListener('click', function () {
 });
 
 function getPhoto() {
-	document.getElementById('randomImg').innerHTML = `
-        <img src="https://source.unsplash.com/collection/209138/1600x900" class="responsive" >
-        `;
+	
+	var unsplash = "https://source.unsplash.com/collection/209138/1600x900";
+
+	$("#image").attr("src", unsplash);
+
 
 }
