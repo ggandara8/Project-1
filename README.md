@@ -22,3 +22,5 @@ Contributors:
 Gerardo Gandara
 Susie Otto
 Isaias Quintanilla
+
+Deployed link: https://ggandara8.github.io/Project-1/
