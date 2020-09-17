@@ -1,26 +1,43 @@
-# Project-1 
+# The Happy Place
 
-Title:
-The Happy Place
+<br>
 
-Purpose:
-Take users to a happy place to cheer them up during quarantine. After quarantine it can be a good place to go for a pick me up while stuck in the office, etc.
+## Development Team
 
-User Story:
+[Gerardo Gandara](https://github.com/ggandara8)
+
+[Susie Otto](https://github.com/susieotto)
+
+[Isaias Quintanilla](https://github.com/Isaias2020)
+
+<br>
+
+## Description
+
+Take users to a happy place to cheer them up during quarantine. After quarantine it can be a good place to go for a pick me up while stuck in the office.
+
+<br>
+
+## User Story
+
 AS A person stuck in quarantine
 I WANT to see cheerful imagery, jokes, or participate in serene activities
 SO THAT I find beauty and laughter in the world and don’t feel as down during quarantine
 
-API's and sources used:
+<br>
+
+## Technologies
+
+JQuery
+Zurb Foundation
+API's:
 https://developers.giphy.com/docs/sdk
 https://unsplash.com/developers
 https://celebritybucks.com/developers
 https://momentjs.com/
 https://icanhazdadjoke.com/api
 
-Contributors:
-Gerardo Gandara
-Susie Otto
-Isaias Quintanilla
+<br>
 
 Deployed link: https://ggandara8.github.io/Project-1/
+
