@@ -1,5 +1,9 @@
 # The Happy Place
 
+## Description
+
+Take users to a happy place to cheer them up during quarantine. After quarantine it can be a good place to go for a pick me up while stuck in the office.
+
 <br>
 
 ## Development Team
@@ -9,12 +13,6 @@
 [Susie Otto](https://github.com/susieotto)
 
 [Isaias Quintanilla](https://github.com/Isaias2020)
-
-<br>
-
-## Description
-
-Take users to a happy place to cheer them up during quarantine. After quarantine it can be a good place to go for a pick me up while stuck in the office.
 
 <br>
 
@@ -39,5 +37,5 @@ https://icanhazdadjoke.com/api
 
 <br>
 
-Deployed link: https://ggandara8.github.io/Project-1/
+Deployed link: https://ggandara8.github.io/The-Happy-Place/
 
